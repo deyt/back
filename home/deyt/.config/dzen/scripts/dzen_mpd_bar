@@ -1,0 +1,11 @@
+#!/bin/bash
+GBG='#bfbfbf'
+GFG='#505050'
+GH=8
+GW=100
+MAXPOS="100"
+ 
+POS=`mpc | sed -ne 's/^.*(\([0-9]*\)%).*$/\1/p'`
+POSM="$POS $MAXPOS"
+A=`echo "$POSM" | gdbar -h $GH -w $GW -fg $GFG -bg $GBG`
+echo $A|sed s/$POS%\ //

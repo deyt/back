@@ -1,0 +1,4 @@
+#!/bin/sh
+c=$(ossmix vmix0-outvol|awk '{print $10}')
+#echo "c*4" |bc -l
+echo $c
