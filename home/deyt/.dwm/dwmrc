@@ -1,0 +1,14 @@
+export GTK_MODULES=winmenu
+mpd &
+killall conky&
+xscreensaver  -no-splash &
+feh --bg-scale Pictures/5dc4ddc4ce42146dd00ae4f6f4f135e2.jpg &
+sleep 5
+gajim &
+transmission-gtk &
+liferea &
+conky --config=/home/deyt/.conkyrc2 | while read -r; 
+    do xsetroot -name "$REPLY"; 
+    done &
+dzen_starter &
+trayer --expand true --widthtype request --transparent false --alpha 255 --edge top --align right --heighttype pixel --height 16 &
