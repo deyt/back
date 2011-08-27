@@ -8,4 +8,5 @@ dzen_starter &
 gajim &
 transmission-gtk &
 liferea &
+dzen_starter2 &
 trayer --expand true --widthtype request --transparent false --alpha 255 --edge top --align right --heighttype pixel --height 16 &
