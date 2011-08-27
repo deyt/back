@@ -16,19 +16,16 @@ text_buffer_size 	        2048
 update_interval             2
 
 TEXT
-echo -n '^fg(\#d6d6d6)^bg(\#505050) ${time %H:%M} ^fg()^bg()| ${time %a | %e %b} ||'
+E='echo -n'
+
+$$E '^fg(\#d6d6d6)^bg(\#505050) ${time %H:%M} ^fg()^bg()| ${time %a | %e %b} ||'
 echo -n '^i(/home/deyt/.config/dzen/mem.xpm)${memperc}% ||'
-echo -n '^i(/home/deyt/.config/dzen/net_down.xpm)${downspeed wlan0}'
-echo -n ' |^i(/home/deyt/.config/dzen/net_up.xpm)${upspeed wlan0} ||'
 echo -n '${if_mpd_playing}${if_match "${mpd_status}" == "Paused"}'
 echo -n '^i(/home/deyt/.config/dzen/pause_mpd.xpm)||${else}'
 echo -n '^i(/home/deyt/.config/dzen/play_mpd.xpm)||${endif} '
-echo -n "${mpd_smart 100} |"
-echo -n ' ${exec /home/deyt/.config/dzen/scripts/dzen_mpd_bar}'
-echo -n ' ||${if_match "${mpd_random}" == "Off"}${else}'
-echo -n '^i(/home/deyt/.config/dzen/random_mpd.xpm)${endif}^i(/home/deyt/.config/dzen/repeat_mpd.xpm)||${else}'
+echo -n "${mpd_smart 100} "
+echo -n '${else}'
 echo -n '^i(/home/deyt/.config/dzen/stop_mpd.xpm)||${endif}'
-echo -n ' • ${exec skb 1} || '
-echo -n '${exec ossvolume}dB'
+
 
 echo
