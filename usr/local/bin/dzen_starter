@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# CFG='.dzconkyrc2'
 CFG='.conkyrc3'
 BG='#d6d6d6'
 FG='#505050'
 X=0
-Y=786
-HEIGHT=14
+Y=785
+HEIGHT=15
 WIDTH=1280
 FONT='-misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-r'
 export DISPLAY=:0 
-# conky -c $CFG -DD | sh | dzen2 -e - -x $X -y $Y -bg $BG -fg $FG -w $WIDTH -h $HEIGHT -ta c -fn $FONT -p
 conky -c $CFG | sh | dzen2 -h $HEIGHT -w $WIDTH -ta l -bg $BG -fg $FG -fn $FONT -x $X -y $Y -p -e "button1=exec:mpc toggle;button2=exec:mpc next;" -u

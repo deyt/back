@@ -1,0 +1,12 @@
+#!/bin/sh
+
+CFG='.conkyrc4'
+BG='#d6d6d6'
+FG='#505050'
+X=850
+Y=785
+HEIGHT=15
+WIDTH=500
+FONT='-misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-r'
+export DISPLAY=:0 
+conky -c $CFG | sh | dzen2 -h $HEIGHT -w $WIDTH -ta r -bg $BG -fg $FG -fn $FONT -x $X -y $Y -p -e "button1=exec:mpc toggle;button2=exec:mpc next;" -u
