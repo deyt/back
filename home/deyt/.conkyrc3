@@ -26,6 +26,13 @@ echo -n '^i(/home/deyt/.config/dzen/play_mpd.xpm)||${endif} '
 echo -n "${mpd_smart 100} "
 echo -n '${else}'
 echo -n '^i(/home/deyt/.config/dzen/stop_mpd.xpm)||${endif}'
-
+echo -n '^pa(869)${exec /home/deyt/.config/dzen/scripts/dzen_mpd_bar} '
+echo -n '${if_mpd_playing}|${if_match "${mpd_random}" == "Off"}'
+echo -n '^i(/home/deyt/.config/dzen/random_off_mpd.xpm)${else}'
+echo -n '^i(/home/deyt/.config/dzen/random_mpd.xpm)${endif}^i(/home/deyt/.config/dzen/repeat_mpd.xpm)${endif}'
+echo -n '^pa(1015)||^i(/home/deyt/.config/dzen/net_down.xpm)${downspeed wlan0}'
+echo -n '^pa(1083)|^pa(1090)^i(/home/deyt/.config/dzen/net_up.xpm)${upspeed wlan0}'
+echo -n '^pa(1143)|| • ${exec skb 1} ||'
+echo -n '^pa(1223)${exec ossvolume}^pa(1253)dB'
 
 echo
