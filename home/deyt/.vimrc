@@ -28,7 +28,7 @@ set incsearch                                           " поиск по мер
 set showmatch                                           " подсвечивать все совпадения при поиске
 set hlsearch                                            
 
-set colorcolumn=85                                      " подсвечивать 85 символ каждой строки
+set colorcolumn=100                                     " подсвечивать 100 символ каждой строки
 
 set showtabline=2                                       " всегда показывать строку табов
 set pastetoggle=<F2>                                    " вставляемый в документ текст не будет расползаться
@@ -38,4 +38,34 @@ nnoremap ; :
 
 set stl=[b%n]%m%r[%t][type:%Y]%=\ [%l/%L,%c][%p%%]      " строка статуса
 
-colorscheme slate                                       " цветовая схема
+colorscheme pablo                                       " цветовая схема
+
+" NERDTree
+let NERDTreeIgnore=['\.swp', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+
+" F3 - NERDTree
+nmap <F3> :NERDTreeToggle<CR>
+vmap <F3> <esc>:NERDTreeToggle<CR>
+imap <F3> <esc>:NERDTreeToggle<CR>
+
+" F5 - просмотр списка буферов
+nmap <F5> <Esc>:BufExplorer<cr>
+vmap <F5> <esc>:BufExplorer<cr>
+imap <F5> <esc><esc>:BufExplorer<cr>
+
+" F6 - предыдущий буфер
+nmap <F6> :bp<cr>
+vmap <F6> <esc>:bp<cr>i
+imap <F6> <esc>:bp<cr>i
+
+" F7 - следующий буфер
+nmap <F7> :bn<cr>
+vmap <F7> <esc>:bn<cr>i
+imap <F7> <esc>:bn<cr>i
+
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
