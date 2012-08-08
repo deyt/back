@@ -1,0 +1,22 @@
+--- a/config.def.h	2011-06-05 01:07:05.053446302 +0100
++++ b/config.def.h	2011-06-05 01:13:52.426754693 +0100
+@@ -15,6 +15,7 @@ static const unsigned int borderpx  = 1;
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */
+ static const Bool topbar            = True;     /* False means bottom bar */
++static const int marginbottom       = 18;       /* Bottom padding for conky */
+ 
+ static const Rule rules[] = {
+ 	/* class      instance    title       tags mask     isfloating   monitor  opacity*/
+--- a/dwm.c	2011-06-05 01:07:05.060112859 +0100
++++ b/dwm.c	2011-06-05 01:10:52.109734965 +0100
+@@ -1925,6 +1925,9 @@ updatebarpos(Monitor *m) {
+ 	m->wh = m->mh;
+ 	if(m->showbar) {
+ 		m->wh -= bh;
++    m->wh -= marginbottom;
++    if(!m->topbar)
++      m->wy += marginbottom;
+ 		m->by = m->topbar ? m->wy : m->wy + m->wh;
+ 		m->wy = m->topbar ? m->wy + bh : m->wy;
+ 	}
